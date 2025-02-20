@@ -1,0 +1,39 @@
+function startScript() {
+    function checkAndConnect() {
+        let powerButton = document.querySelector('.relative.w-24.h-16.rounded-full.cursor-pointer');
+
+        if (!powerButton) {
+            console.log("Power button not found!");
+            return;
+        }
+
+        let innerButton = powerButton.querySelector('div');
+
+        if (!innerButton) {
+            console.log("Inner button not found!");
+            return;
+        }
+
+        let isConnected = innerButton.classList.contains('translate-x-10');
+
+        if (!isConnected) {
+            console.log("Connecting...");
+            powerButton.click();
+        } else {
+            console.log("Already connected!");
+        }
+    }
+
+    setInterval(checkAndConnect, 3000);
+}
+
+function showPopup() {
+    if (confirm("Nexus Mining Auto Connected Script by InstantProfitAirdop\n\nSubscribe: t.me/instantprofitairdop")) {
+        console.log("User clicked OK. Starting script...");
+        startScript();
+    } else {
+        console.log("User clicked Cancel. Script not started.");
+    }
+}
+
+showPopup();
